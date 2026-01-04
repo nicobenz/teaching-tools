@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Path as PathParam
 from pydantic import BaseModel, Field
 
 # Initialize FastAPI app
@@ -63,11 +63,11 @@ async def get_table_of_contents():
     description="Get a section of the curriculum for a given subject and section index",
 )
 async def get_curriculum_section(
-    subject: str = Field(
+    subject: str = PathParam(
         ...,
         description="The subject to get the curriculum for (e.g. 'deutsch', 'englisch', 'mathe', 'sachunterricht')",
     ),
-    section_index: int = Field(
+    section_index: int = PathParam(
         ...,
         description="The index of the section to get (e.g. 0 for the first section)",
         ge=0,
