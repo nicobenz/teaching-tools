@@ -5,7 +5,7 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP(name="teaching-tools", json_response=False, stateless_http=False)
 
 # Constants
-USER_AGENT = "teaching-tools/1.0"
+USER_AGENT = "teaching-tools/0.0.1"
 
 with open("resources/data.json", "r") as f:
     DATA = json.load(f)
